@@ -1,0 +1,31 @@
+-- 用户表
+CREATE TABLE t_user(
+id INT(10) PRIMARY KEY AUTO_INCREMENT,
+username VARCHAR(100),
+PASSWORD VARCHAR(100),
+nickname VARCHAR(100),
+STATUS INT(2),
+TYPE INT(2)
+)
+
+-- 消息表
+CREATE TABLE t_msg(
+id INT(10) PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(255),
+content TEXT,
+post_data DATETIME,
+user_id INT(10),
+CONSTRAINT FOREIGN KEY (user_id) REFERENCES t_user(id)
+)
+
+-- 评论表
+CREATE TABLE t_comment(
+id INT(10) PRIMARY KEY AUTO_INCREMENT,
+post_date DATETIME,
+content TEXT,
+user_id INT(10),
+msg_id INT(10),
+CONSTRAINT FOREIGN KEY (user_id) REFERENCES t_user(id),
+CONSTRAINT FOREIGN KEY (msg_id) REFERENCES t_msg(id)
+)
+
