@@ -6,3 +6,22 @@ select * from t_user limit 0,15;
 2.每页显示多少条？
 0,10
 11,20
+
+在建表的时候，行名出错，需要删除行名然后新建
+
+删除行名：
+
+alter t_msg drop post_data;
+
+新建行名：
+
+alter table t_msg add column post_date datetime after title
+
+倒序，限制数量查找
+
+SELECT * FROM t_user ORDER BY id DESC LIMIT 0,17
+
+
+
+
+

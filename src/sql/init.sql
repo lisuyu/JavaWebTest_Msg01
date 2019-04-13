@@ -13,7 +13,7 @@ CREATE TABLE t_msg(
 id INT(10) PRIMARY KEY AUTO_INCREMENT,
 title VARCHAR(255),
 content TEXT,
-post_data DATETIME,
+post_date DATETIME,
 user_id INT(10),
 CONSTRAINT FOREIGN KEY (user_id) REFERENCES t_user(id)
 )
