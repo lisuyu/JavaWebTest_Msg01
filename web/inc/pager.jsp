@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.awt.*" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2019/4/10 0010
@@ -8,6 +8,9 @@
 <%
     int items = Integer.parseInt(request.getParameter("items"));
     String params = request.getParameter("params");
+    if (params==null){
+        params="";
+    }
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="pg" uri="http://jsptags.com/tags/navigation/pager"%>

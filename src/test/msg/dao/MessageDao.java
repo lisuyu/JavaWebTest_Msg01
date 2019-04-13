@@ -24,12 +24,13 @@ public class MessageDao implements IMessageDao{
         if (userDao.load(userId)==null) throw new MsgException("添加留言的用户不存在");
         try {
             connection = DBUtil.getConnection();
-            String sql = "insert into t_msg (title,content,post_date,user_id) values (null,?,?,?,?)";
+            String sql = "insert into t_msg values (null,?,?,?,?)";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,msg.getTitle());
-            preparedStatement.setTimestamp(2,new Timestamp(new Date().getTime()));
-            preparedStatement.setString(3,msg.getContent());
+            preparedStatement.setTimestamp(3,new Timestamp(new Date().getTime()));
+            preparedStatement.setString(2,msg.getContent());
             preparedStatement.setInt(4,msg.getUserId());
+            System.out.println(sql);
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
